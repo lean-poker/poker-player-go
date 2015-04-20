@@ -1,3 +1,2 @@
 go.pid
-bin/*
-pkg/*
+player-service
