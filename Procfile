@@ -1,1 +1,1 @@
-web: player-service
+player-service: pokerplayer-go
