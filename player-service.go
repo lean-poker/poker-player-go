@@ -62,6 +62,7 @@ func handleRequest(w http.ResponseWriter, request *http.Request) {
 }
 
 func parseGame(stateStr string) (game *leanpoker.Game, err error) {
+	game = &leanpoker.Game{}
 	if err = json.Unmarshal([]byte(stateStr), game); err != nil {
 		log.Printf("Error parsing game state: %s", err)
 		return nil, err
