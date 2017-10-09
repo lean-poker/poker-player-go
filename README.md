@@ -12,9 +12,10 @@ See [Deploying Go Apps on Heroku](https://devcenter.heroku.com/articles/deployin
 ### Workflow
 
 1. Fork this repo
-2. `go get` your fork
-3. Fix import path in your copy
-4. Update dependencies with `godep save -r ./...`
-5. Inspect and commit changes
-6. Push changes to your fork's default branch (normally `master`)
-7. Deploy to Heroku
+2. `go get` your fork (github.com/User/repo)
+3. Open the repo ($GOPATH/src/github.com/User/repo)
+4. Replace lean-poker import paths to your repo url in your copy
+5. Update dependencies with `godep save -r ./...`
+6. Inspect and commit changes
+7. Push changes to your fork's default branch (normally `master`)
+8. Deploy to Heroku
