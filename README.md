@@ -1,7 +1,7 @@
 poker-player-go
 ===============
 
-Go client skeleton for Lean Poker. For more information visit: http://leanpoker.org 
+Go client skeleton for Lean Poker. For more information visit: http://leanpoker.org
 
 ## Usage instructions
 
@@ -14,8 +14,6 @@ See [Deploying Go Apps on Heroku](https://devcenter.heroku.com/articles/deployin
 1. Fork this repo
 2. `go get` your fork (github.com/User/repo)
 3. Open the repo ($GOPATH/src/github.com/User/repo)
-4. Replace lean-poker import paths to your repo url in your copy
-5. Update dependencies with `godep save -r ./...`
-6. Inspect and commit changes
-7. Push changes to your fork's default branch (normally `master`)
-8. Deploy to Heroku
+4. Inspect and commit changes
+5. Push changes to your fork's default branch (normally `master`)
+6. Deploy to Heroku
