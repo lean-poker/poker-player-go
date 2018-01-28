@@ -7,9 +7,6 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-
-	"github.com/lean-poker/poker-player-go/leanpoker"
-	"github.com/lean-poker/poker-player-go/player"
 )
 
 func main() {
@@ -43,7 +40,7 @@ func handleRequest(w http.ResponseWriter, request *http.Request) {
 			return
 		}
 
-		result := player.BetRequest(game)
+		result := BetRequest(game)
 		fmt.Fprintf(w, "%d", result)
 	case "showdown":
 		game, err := parseGame(request.FormValue("game_state"))
@@ -52,17 +49,17 @@ func handleRequest(w http.ResponseWriter, request *http.Request) {
 			return
 		}
 
-		player.Showdown(game)
+		Showdown(game)
 		fmt.Fprint(w, "")
 	case "version":
-		fmt.Fprint(w, player.Version())
+		fmt.Fprint(w, Version())
 	default:
 		http.Error(w, "Invalid action", 400)
 	}
 }
 
-func parseGame(stateStr string) (game *leanpoker.Game, err error) {
-	game = &leanpoker.Game{}
+func parseGame(stateStr string) (game *Game, err error) {
+	game = &Game{}
 	if err = json.Unmarshal([]byte(stateStr), game); err != nil {
 		log.Printf("Error parsing game state: %s", err)
 		return nil, err
