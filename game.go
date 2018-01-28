@@ -1,4 +1,4 @@
-package leanpoker
+package main
 
 type Game struct {
 	// The small blind in the current round. The big blind is twice
