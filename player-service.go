@@ -28,6 +28,8 @@ func handleRequest(w http.ResponseWriter, request *http.Request) {
 		return
 	}
 
+	player := NewPokerPlayer()
+
 	action := request.FormValue("action")
 	log.Printf("Request method=%s url=%s action=%s from client=%s\n", request.Method, request.URL, action, request.RemoteAddr)
 	switch action {
@@ -40,7 +42,7 @@ func handleRequest(w http.ResponseWriter, request *http.Request) {
 			return
 		}
 
-		result := BetRequest(game)
+		result := player.BetRequest(game)
 		fmt.Fprintf(w, "%d", result)
 	case "showdown":
 		game, err := parseGame(request.FormValue("game_state"))
@@ -49,10 +51,10 @@ func handleRequest(w http.ResponseWriter, request *http.Request) {
 			return
 		}
 
-		Showdown(game)
+		player.Showdown(game)
 		fmt.Fprint(w, "")
 	case "version":
-		fmt.Fprint(w, Version())
+		fmt.Fprint(w, player.Version())
 	default:
 		http.Error(w, "Invalid action", 400)
 	}
