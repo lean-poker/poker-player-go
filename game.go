@@ -1,5 +1,6 @@
 package main
 
+// Game describes the game state JSON
 type Game struct {
 	// The small blind in the current round. The big blind is twice
 	// the small blind

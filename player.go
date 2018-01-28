@@ -1,8 +1,9 @@
 package main
 
+// Player describes a player's properties in the game state JSON
 type Player struct {
-	// Id of the player (same as the index)
-	Id int `json:"id"`
+	// ID of the player (same as the index)
+	ID int `json:"id"`
 
 	// Name specified in the tournament config
 	Name string `json:"name"`
